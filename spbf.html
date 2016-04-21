@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>播放视频</title>
+    <style>
+        #canvas{border: 2px solid #ccc}
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <video id="video" src="1.mp4" controls></video>
+    
+    <script>
+        
+        window.onload = function(){
+            var mycanvas = document.getElementById('canvas');
+            var myvideo = document.getElementById('video');
+            
+            var con = mycanvas.getContext('2d');
+            
+            (function drew(){
+                con.drawImage(myvideo,0,0,800,600);
+                window.requestAnimationFrame(drew)
+            })()
+        }
+    </script>
+</body>
+</html>
